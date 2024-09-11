@@ -32,6 +32,7 @@ const Countries = () => {
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);
+
   return (
     <>
       <Toaster position="top-center" />

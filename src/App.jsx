@@ -1,5 +1,5 @@
 import "./App.css";
-import Countris from "./components/countris";
+import Countris from "./components/Countries";
 
 function App() {
   const names = ["Mozammal", "Aklima", "Sara", "Fara"];

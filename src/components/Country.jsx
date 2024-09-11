@@ -1,14 +1,23 @@
+import { useState } from "react";
 import "./country.css";
 
-const Country = ({ country }) => {
-  console.log(country);
-  const { name, flags, capital } = country;
+const Country = ({ country, hanldeVisited }) => {
+  const [bgc, setBgc] = useState(false);
+
+  const changeBgColor = () => {
+    setBgc(!bgc);
+  };
+
+  // console.log(country);
+  const { name, flags, capital, population } = country;
   return (
-    <div className="country">
-      <p>{name?.common}</p>
-      <img src={flags.png} alt="" />
-      <p>Code: </p>
-      <h2>Capital: {capital} </h2>
+    <div className={`country ${bgc && "bgc"}`}>
+      <img src={flags?.png} alt="" />
+      <p style={{ color: bgc ? "tomato" : "green" }}>Name: {name?.common}</p>
+      <p>Capital: {capital} </p>
+      <p>Population: {population}</p>
+      <button onClick={() => hanldeVisited(country)}>Visited</button>
+      <button onClick={changeBgColor}>Change bg color</button>
     </div>
   );
 };

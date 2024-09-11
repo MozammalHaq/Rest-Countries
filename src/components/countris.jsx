@@ -1,29 +1,56 @@
 import { useEffect, useState } from "react";
-import Country from "./Country";
+import toast, { Toaster } from "react-hot-toast";
 import "./countries.css";
+import Country from "./Country";
+
+const load = 12;
 
 const Countris = () => {
   const [countries, setCountries] = useState([]);
-  const [more, setMore] = useState(9);
+  const [visited, setVisited] = useState([]);
+  const [more, setMore] = useState(load);
+  console.log(visited);
+
   const loadMore = () => {
-    if (countries.length - more <= 9) {
+    if (countries.length - more <= load) {
       setMore(countries.length);
     } else {
-      setMore(more + 9);
+      setMore(more + load);
     }
   };
+
+  const hanldeVisited = (country) => {
+    const unique = visited.find((one) => one == country);
+    if (unique) {
+      return toast.error("Already Visited");
+    }
+    setVisited([...visited, country]);
+  };
+
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);
+
   return (
     <>
+      <Toaster position="top-center" />
       <p>Total: {countries.length}</p>
+      <p>Visited Countries: {visited.length}</p>
+      {/* Remove Button */}
+      {more !== countries.length && (
+        <button onClick={loadMore}>Load More</button>
+      )}
+      <p>Loaded: {more}</p>
       <hr />
       <div className="countries">
-        {countries.slice(0, more).map((country) => (
-          <Country country={country} key={country.cca2}></Country>
+        {countries?.slice(0, more)?.map((country) => (
+          <Country
+            country={country}
+            hanldeVisited={hanldeVisited}
+            key={country.cca2}
+          ></Country>
         ))}
       </div>
       <hr />
@@ -42,7 +69,7 @@ const Countris = () => {
         {...(more === countries.length ? { disabled: true } : {})}
         onClick={loadMore}
       >
-        Load More
+        Load More{" "}
       </button>
       {/* Class Name */}
       <button
@@ -56,7 +83,6 @@ const Countris = () => {
       {more !== countries.length && (
         <button onClick={loadMore}>Load More</button>
       )}
-
       <p>Loaded: {more}</p>
     </>
   );

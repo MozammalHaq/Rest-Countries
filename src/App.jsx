@@ -1,11 +1,11 @@
 import "./App.css";
-import Countris from "./components/Countries";
+import Countries from "./components/countries";
 
 function App() {
   const names = ["Mozammal", "Aklima", "Sara", "Fara"];
   return (
     <>
-      <Countris />
+      <Countries />
       {/* <Counter />
       <Counter />
       {names.map((name) => (

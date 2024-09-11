@@ -5,7 +5,7 @@ import Country from "./Country";
 
 const load = 12;
 
-const Countris = () => {
+const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [visited, setVisited] = useState([]);
   const [more, setMore] = useState(load);
@@ -88,4 +88,4 @@ const Countris = () => {
   );
 };
 
-export default Countris;
+export default Countries;

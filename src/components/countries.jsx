@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import "./countries.css";
 import Country from "./Country";
+import "./countries.css";
 
 const load = 12;
 

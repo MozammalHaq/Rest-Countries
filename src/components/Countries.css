@@ -1,0 +1,11 @@
+.countries {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  margin-bottom: 50px;
+}
+
+.disabled-btn {
+  background-color: grey;
+  cursor: not-allowed;
+  opacity: 0.5;
+}

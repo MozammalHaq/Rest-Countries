@@ -108,6 +108,13 @@ onClick={loadMore}
 disabled={more === countries.length} >
 Load More
 </button>
+_CSS_
+.disabled-btn {
+background-color: grey;
+cursor: not-allowed;
+opacity: 0.5;
+}
+
 {/_ Remove Button _/}
 {more !== countries.length && (
 <button onClick={loadMore}>Load More</button>

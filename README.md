@@ -4,14 +4,12 @@
 
 #### React:
 
-````markdown
-```react
+```markdown
 const [countries, setCountries] = useState([]);
 
 useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((res) => res.json())
-      .then((data) => setCountries(data));
-  }, []);
+fetch("https://restcountries.com/v3.1/all")
+.then((res) => res.json())
+.then((data) => setCountries(data));
+}, []);
 ```
-````

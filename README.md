@@ -13,3 +13,17 @@ fetch("https://restcountries.com/v3.1/all")
 .then((data) => setCountries(data));
 }, []);
 ```
+
+## তারপর তা অন্য একটি Component এ map করে প্রত্যে দেশের আলাদা আলাদা করে ডাটা দেখানো হয়েছে।
+
+#### React
+
+```markdown
+{countries?.slice(0, more)?.map((country) => (
+<Country
+    country={country}
+    hanldeVisited={hanldeVisited}
+    key={country.cca2}
+    ></Country>
+))}
+```

@@ -9,7 +9,6 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [visited, setVisited] = useState([]);
   const [more, setMore] = useState(load);
-  console.log(visited);
 
   const loadMore = () => {
     if (countries.length - more <= load) {

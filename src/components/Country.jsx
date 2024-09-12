@@ -16,7 +16,13 @@ const Country = ({ country, hanldeVisited }) => {
       <p style={{ color: bgc ? "tomato" : "green" }}>Name: {name?.common}</p>
       <p>Capital: {capital} </p>
       <p>Population: {population}</p>
-      <button onClick={() => hanldeVisited(country)}>Visited</button>
+      <button
+        onClick={() => {
+          hanldeVisited(country);
+        }}
+      >
+        Visit
+      </button>
       <button onClick={changeBgColor}>Change bg color</button>
     </div>
   );

@@ -4,7 +4,7 @@
 
 #### React:
 
-```markdown
+```react
 const [countries, setCountries] = useState([]);
 
 useEffect(() => {
